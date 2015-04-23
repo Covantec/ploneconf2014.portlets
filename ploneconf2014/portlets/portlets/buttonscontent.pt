@@ -1,0 +1,38 @@
+<dl class="portlet portletButtonsContent"
+    i18n:domain="ploneconf2014.portlets">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <center i18n:translate="label_contacts">Contacts</center>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd"
+        tal:define="email view/data/email">
+
+        <tal:notemail condition="not:email">
+            <span i18n:translate="not_email_portlet">Edit portlet configurations
+            <a href="#" 
+               tal:attributes="href string:++contextportlets++plone.rightcolumn/buttonscontent/edit/" i18n:translate="label_here">
+               here</a></span>
+        </tal:notemail>
+        
+        <tal:email condition="email">
+            <center>
+            <p><span i18n:translate="portlet_item">For more information contact to </span>
+            <br /><br />
+            <a href="#" 
+               tal:attributes="href string:mailto:${email}"
+               tal:content="structure view/data/full_name">
+               full name to contacts</a></p> 
+            </center>
+        </tal:email>
+    </dd>
+
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        <center><i i18n:translate="label_portlet_footer">Thanks you!!!</i></center>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>
